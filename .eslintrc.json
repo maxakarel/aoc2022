@@ -1,0 +1,14 @@
+{
+    "root": true,
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "dot-location": ["error", "property"],
+        "indent": ["error", 2, { "SwitchCase": 1 }],
+        "no-trailing-spaces": "error",
+        "semi": "off"
+      }
+}

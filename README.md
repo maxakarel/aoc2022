@@ -1,3 +1,3 @@
-# AOC 2022
+# 🎄 Advent of Code 2022 🎄
 
-Personal repository for Advent Of Code 2022. 
+Repository hosting personal solutions of [Advent of Code](https://adventofcode.com) puzzles.
