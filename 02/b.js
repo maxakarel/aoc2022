@@ -1,0 +1,40 @@
+import { readFile } from 'node:fs/promises';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const filePath = resolve(dirname(fileURLToPath(import.meta.url)), 'input.data');
+const data = await readFile(filePath, 'utf-8');
+
+const ROUND_SCORE = {
+  X: 0, // Lose
+  Y: 3, // Draw
+  Z: 6 // Win
+};
+
+const SHAPE_SCORE = {
+  A: { // Rock
+    X: 3, // Lose (Scissors)
+    Y: 1, // Draw (Rock)
+    Z: 2 // Win (Paper)
+  },
+  B: { // Paper
+    X: 1, // Lose (Rock)
+    Y: 2, // Draw (Paper)
+    Z: 3 // Win (Scissors)
+  },
+  C: { // Scissors
+    X: 2, // Lose (Paper)
+    Y: 3, // Draw (Scissors)
+    Z: 1 // Win (Rock)
+  }
+};
+
+let result = 0;
+
+data.trim().split('\n').forEach(round => {
+  let first, second;
+  [first, second] = round.split(' ');
+  result += ROUND_SCORE[second] + SHAPE_SCORE[first][second];
+});
+
+console.log(`Result: ${result}`);
