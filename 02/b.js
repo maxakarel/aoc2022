@@ -29,12 +29,11 @@ const SHAPE_SCORE = {
   }
 };
 
-let result = 0;
-
-data.trim().split('\n').forEach(round => {
-  let first, second;
-  [first, second] = round.split(' ');
-  result += ROUND_SCORE[second] + SHAPE_SCORE[first][second];
-});
+const result = data.trim().split('\n')
+  .map(round => {
+    const [first, second] = round.split(' ');
+    return ROUND_SCORE[second] + SHAPE_SCORE[first][second];
+  })
+  .reduce((acc, value) => acc + value);
 
 console.log(`Result: ${result}`);

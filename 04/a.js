@@ -19,7 +19,7 @@ class Range {
    * @returns true when the range is included, false otherwise.
    */
   contains(range) {
-    return this.x <= range.x && range.x <= range.y && range.y <= this.y;
+    return this.x <= range.x && range.y <= this.y;
   }
 }
 
