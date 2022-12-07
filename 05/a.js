@@ -20,10 +20,10 @@ initInstructions.split('\n').reverse().slice(1).forEach(value => {
 });
 
 //~ Process movements
-const MOVEMENT_REGEXP = /move ([\d]+) from ([\d]+) to ([\d]+)/;
+const MOVEMENT_PATTERN = /move ([\d]+) from ([\d]+) to ([\d]+)/;
 movements.split('\n').forEach(movement => {
   // Parse instructions
-  const [, count, source, target] = movement.match(MOVEMENT_REGEXP);
+  const [, count, source, target] = movement.match(MOVEMENT_PATTERN);
   // Process movement
   let crates = stacks[source].splice(stacks[source].length - count, count);
   stacks[target].push(...crates.reverse());
